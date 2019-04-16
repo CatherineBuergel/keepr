@@ -23,7 +23,7 @@ namespace keepr.Repositories
 
     public Keep GetById(int id)
     {
-      return _db.QueryFirstOrDefault<Keep>("SELECT * FROM keeps WHERE id = @id", new { id });
+      return _db.QueryFirstOrDefault<Keep>("SELECT * FROM keeps WHERE id = @id AND isPrivate = 0", new { id });
     }
 
     public Keep CreateKeep(Keep rawKeep)
@@ -62,8 +62,9 @@ namespace keepr.Repositories
     public bool DeleteKeep(int id, string userId)
     {
 
-      int success = _db.Execute("DELETE FROM keeps WHERE (id = @id AND userId = @userId AND isPrivate = 1)", new { id, userId });
+      int success = _db.Execute("DELETE FROM keeps WHERE (id = @id AND userId = @userId)", new { id, userId });
       return success > 0;
     }
   }
 }
+// AND userId = @userId AND isPrivate = 1

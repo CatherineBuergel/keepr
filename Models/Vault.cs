@@ -12,8 +12,8 @@ namespace keepr.Models
     [Required]
     public string Description { get; set; }
 
-    [Required]
-    public string userId { get; set; }
+
+    public string UserId { get; set; }
   }
 }
 

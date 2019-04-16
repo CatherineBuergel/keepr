@@ -23,7 +23,8 @@ export default new Vuex.Store({
   state: {
     user: {},
     publicKeeps: [],
-    personalKeeps: []
+    personalKeeps: [],
+    vaults: []
   },
   mutations: {
     setUser(state, user) {
@@ -34,6 +35,9 @@ export default new Vuex.Store({
     },
     setPersonalKeeps(state, data) {
       state.personalKeeps = data
+    },
+    setVaults(state, data) {
+      state.vaults = data
     }
   },
   actions: {
@@ -55,6 +59,7 @@ export default new Vuex.Store({
           // router.push({ name: 'home' })
           dispatch('getPublicKeeps')
           dispatch('getPersonalKeeps')
+          dispatch('getVaults')
         })
         .catch(e => {
           console.log('not authenticated')
@@ -79,6 +84,7 @@ export default new Vuex.Store({
         })
     },
     //#endregion
+    //#region Keeps
     getPublicKeeps({ commit, dispatch }) {
       api.get('/keeps')
         .then(res => {
@@ -90,14 +96,45 @@ export default new Vuex.Store({
       api.post('/keeps', payload)
         .then(res => {
           console.log(res.data);
+          dispatch('getPersonalKeeps')
         })
     },
     getPersonalKeeps({ commit, dispatch }) {
-      api.get('/keeps/personal')
+      api.get('keeps/user/personal')
         .then(res => {
           commit('setPersonalKeeps', res.data)
         })
-    }
+    },
+    deleteKeep({ commit, dispatch }, payload) {
 
+      api.delete('keeps/' + payload)
+        .then(res => {
+          dispatch('getPersonalKeeps')
+        })
+    },
+    //#endregion
+
+    //#region VAULTS
+    getVaults({ commit, dispatch }) {
+      api.get('vault')
+        .then(res => {
+          commit('setVaults', res.data)
+        })
+    },
+    createVault({ commit, dispatch }, payload) {
+
+      api.post('vault', payload)
+        .then(res => {
+          console.log(res.data)
+          dispatch('getVaults')
+        })
+    },
+    deleteVault({ commit, dispatch }, payload) {
+      api.delete('vault/' + payload)
+        .then(res => {
+          dispatch('getVaults')
+        })
+    }
+    //#endregion
   }
 })

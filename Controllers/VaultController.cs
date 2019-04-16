@@ -17,15 +17,15 @@ namespace keepr.Controllers
       _vr = vr;
     }
     //get all vaults
-    [HttpGet]
     [Authorize]
+    [HttpGet]
     public ActionResult<IEnumerable<Vault>> Get()
     {
       string userId = HttpContext.User.Identity.Name;
       IEnumerable<Vault> results = _vr.GetALL(userId);
       if (results == null)
       {
-        return BadRequest();
+        return BadRequest("something has gone horribly wrong");
       }
       return Ok(results);
     }
@@ -40,19 +40,23 @@ namespace keepr.Controllers
     }
 
     //Create a vault
+    [Authorize]
     [HttpPost]
     public ActionResult<Vault> Create([FromBody] Vault rawVault)
     {
+      rawVault.UserId = HttpContext.User.Identity.Name;
       Vault newVault = _vr.CreateVault(rawVault);
       if (newVault == null) { return BadRequest("Something has gone horribly wrong"); }
       return Ok(newVault);
     }
 
     //delete a vault
+    [Authorize]
     [HttpDelete("{id}")]
     public ActionResult<string> Delete(int id)
     {
-      bool successful = _vr.DeleteKeep(id);
+      string userId = HttpContext.User.Identity.Name;
+      bool successful = _vr.DeleteKeep(id, userId);
       if (!successful) { return BadRequest("Something has gone horribly wrong"); }
       return Ok("Successfully Deleted");
     }

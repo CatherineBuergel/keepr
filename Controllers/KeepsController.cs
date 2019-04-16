@@ -31,7 +31,7 @@ namespace keepr.Controllers
 
     //get all private keeps for private view
     [Authorize]
-    [HttpGet("/personal")]
+    [HttpGet("user/personal")]
     public ActionResult<IEnumerable<Keep>> GetKeepsByUser()
     {
       string userId = HttpContext.User.Identity.Name;
@@ -45,7 +45,7 @@ namespace keepr.Controllers
     }
 
     //Get one keep by ID
-    [HttpGet("{id}")]
+    [HttpGet("keep/{id}")]
     public ActionResult<Keep> Get(int id)
     {
       Keep found = _kr.GetById(id);

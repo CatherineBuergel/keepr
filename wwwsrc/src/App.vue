@@ -11,10 +11,13 @@
           <li class="nav-item">
             <a class="nav-link" @click="goHome" data-toggle="collapse" data-target="#navbarSupportedContent">Home</a>
           </li>
-          <li class="nav-item">
+          <li v-if="!user.id" class="nav-item">
+            <a class="nav-link" @click="login" data-toggle="collapse" data-target="#navbarSupportedContent">Login</a>
+          </li>
+          <li v-else class="nav-item">
             <a class="nav-link" @click="logOut" data-toggle="collapse" data-target="#navbarSupportedContent">Logout</a>
           </li>
-          <li class="nav-item">
+          <li v-if="user.id" class="nav-item">
             <a class="nav-link" @click="goToDashboard" data-toggle="collapse" data-target="#navbarSupportedContent">Dashboard
             </a>
           </li>
@@ -30,7 +33,7 @@
     name: 'App',
     mounted() {
       //Authenticate on startup
-
+      this.$store.dispatch('authenticate')
     },
 
     methods: {
@@ -42,6 +45,9 @@
       },
       goToDashboard() {
         router.push({ name: 'dashboard' })
+      },
+      login() {
+        router.push({ name: 'login' })
       }
 
     },
@@ -51,7 +57,11 @@
     computed: {
       user() {
         return this.$store.state.user
-      }
+      },
+      // loggedOut(){
+      //   return this.$store.state.user ? true : false
+      // }
+
     }
   }
 </script>
