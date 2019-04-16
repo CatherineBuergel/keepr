@@ -49,7 +49,7 @@ namespace keepr.Controllers
     public ActionResult<Keep> Get(int id)
     {
       Keep found = _kr.GetById(id);
-      if (found == null) { return BadRequest("Something had gone horribly wrong"); }
+      if (found == null) { return BadRequest("Something has gone horribly wrong"); }
       return Ok(found);
     }
 

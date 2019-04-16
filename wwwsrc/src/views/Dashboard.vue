@@ -20,10 +20,11 @@
     },
     mounted() {
       //blocks users not logged in
+      this.$store.dispatch("authenticate")
       if (!this.$store.state.user.id) {
         this.$router.push({ name: "login" });
       }
-      this.$store.dispatch("getPersonalKeeps")
+      // this.$store.dispatch("getPersonalKeeps")
     },
     computed: {
       personalKeeps() {

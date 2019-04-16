@@ -52,7 +52,9 @@ export default new Vuex.Store({
       auth.get('authenticate')
         .then(res => {
           commit('setUser', res.data)
-          router.push({ name: 'home' })
+          // router.push({ name: 'home' })
+          dispatch('getPublicKeeps')
+          dispatch('getPersonalKeeps')
         })
         .catch(e => {
           console.log('not authenticated')

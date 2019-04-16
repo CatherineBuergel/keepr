@@ -1,5 +1,5 @@
 <template>
-  <div class="createKeep">
+  <div class="createKeep col-12">
     <form @submit.prevent="createKeep" class="form-inline mb-5">
       <input class="form-control" type="text" placeholder="Keep Name" v-model="newKeep.name" required>
       <input class="form-control" type="text" placeholder="Keep Description" v-model="newKeep.description" required>

@@ -48,7 +48,15 @@ namespace keepr.Repositories
 
     public IEnumerable<Keep> GetAllByUser(string userId)
     {
-      return _db.Query<Keep>("SELECT * FROM keeps WHERE userId = @userId;", new { userId });
+      try
+      {
+        return _db.Query<Keep>("SELECT * FROM keeps WHERE userId = @userId;", new { userId });
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine(e);
+        return null;
+      }
     }
 
     public bool DeleteKeep(int id, string userId)
