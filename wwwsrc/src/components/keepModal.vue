@@ -1,9 +1,9 @@
 <template>
   <div class="keepModal">
     <modal @closemodal="$emit('closemodal')">
-      <span slot="header">This is the keep header</span>
+      <span slot="header">{{keep.name}}</span>
       <span slot="content" class="d-flex justify-content-center">
-        <div class="col-3">
+        <div class="col-4">
           <div class="card" style="width: 18rem;">
             <img class="card-img-top" :src="keep.img" alt="Card image cap">
             <div class="card-body">
@@ -11,10 +11,9 @@
               <p class="card-text">{{keep.description}}</p>
               <p>{{keep.isPrivate ? "Private" : "Public"}}</p>
               <i class="fas fa-trash-alt"></i>
-              <i class="fas fa-plus-square"></i>
               <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-secondary dropdown-toggle button-color-go " type="button" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Add to Vault
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand-lg navbar-dark bgc navbar-color">
-      <a class="navbar-brand logo" @click="goHome">Keepr</a>
+      <a class="navbar-brand logo" @click="goHome"><img class="k-logo" src="@/assets/K-Logo.png" alt=""></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -67,11 +67,11 @@
 </script>
 <style>
   #app {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    font-family: 'Ubuntu Mono', monospace;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #76b39d;
+    color: #000000;
   }
 
   #nav {
@@ -80,7 +80,7 @@
 
   #nav a {
     font-weight: bold;
-    color: #76b39d;
+    color: #000000;
   }
 
   #nav a.router-link-exact-active {
@@ -88,14 +88,43 @@
   }
 
   .background {
-    background-color: #f9f8eb;
+    background-color: #eaeaea;
+    height: 100vh;
   }
 
   .navbar-color {
-    background-color: #05004E;
+    background-color: #444444;
   }
 
   .nav-link {
-    color: #76b39d;
+    color: #000000;
+  }
+
+  .button-color-stop {
+    background-color: #f30067;
+    color: #eaeaea;
+  }
+
+  .button-color-go {
+    background-color: #00d1cd;
+    color: #eaeaea;
+
+  }
+
+  .k-logo {
+    max-height: 55px;
+    cursor: pointer;
+    border-radius: 40%;
+  }
+
+  .card-border {
+    border-color: #f30067;
+    border-radius: 10%;
+    overflow: hidden;
+  }
+
+  .card-img-size {
+    max-width: 100%;
+    object-fit: contain;
   }
 </style>

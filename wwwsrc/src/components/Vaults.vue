@@ -1,12 +1,14 @@
 <template>
-  <div class="vaults col-3">
-    <div class="card mx-1 my-1" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">{{vault.name}}</h5>
-        <p class="card-text">{{vault.description}}</p>
-        <i class="fas fa-trash-alt" @click="deleteVault(vault.id)"></i>
+  <div class="vaults col-3 mt-2">
+
+    <div class="card">
+      <div class="card-body my-2">
+        <h5 class="card-title">Vault: {{vault.name}}</h5>
+        <p class="card-text">Description: {{vault.description}}</p>
+        <i class="fas fa-trash-alt mx-1" @click="deleteVault(vault.id)"></i>
         <button class="btn btn-danger" @click="pushToVault(vault.id)">View Vault</button>
       </div>
+
     </div>
   </div>
 </template>

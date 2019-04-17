@@ -1,17 +1,16 @@
 <template>
-  <div class="personalKeeps">
+  <div class="personalKeeps col-3">
     <keepModal v-if="showKeepModal" @closemodal="closeModal" :keep="keep"></keepModal>
-    <div class="col-3">
-      <div class="card" @click="openKeepModal" style="width: 18rem;">
-        <img class="card-img-top" :src="keep.img" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{keep.name}}</h5>
-          <p class="card-text">{{keep.description}}</p>
-          <p>{{keep.isPrivate ? "Private" : "Public"}}</p>
-          <i class="fas fa-trash-alt" @click="deleteKeep(keep.id)"></i>
-          <i class="fas fa-plus-square"></i>
-        </div>
+
+    <div class="card my-2" @click="openKeepModal">
+      <img class="card-img-top" :src="keep.img" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{keep.name}}</h5>
+        <p class="card-text">{{keep.description}}</p>
+        <p>{{keep.isPrivate ? "Private" : "Public"}}</p>
+        <i class="fas fa-trash-alt" @click="deleteKeep(keep.id)"></i>
       </div>
+
     </div>
   </div>
 </template>

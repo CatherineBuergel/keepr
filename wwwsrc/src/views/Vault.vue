@@ -1,5 +1,5 @@
 <template>
-  <div class="vault">
+  <div class="vault background">
     <div class="row">
       <vaultKeeps v-for="keep in vaultKeeps" :keep="keep" :vaultId="vaultId"></vaultKeeps>
     </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="home background">
-    <h1>Public landing page</h1>
+    <h1>Welcome to Pin - I mean Keepr!</h1>
     <div class="row">
       <publicKeeps v-for="keep in publicKeeps" :keep="keep"></publicKeeps>
     </div>

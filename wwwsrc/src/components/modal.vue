@@ -5,11 +5,7 @@
       <header class="my-modal-header">
         <slot name="header">
           This is the default tile!
-
         </slot>
-        <button type="button" class="my-btn-close" @click="close">
-          x
-        </button>
       </header>
       <section class="my-modal-body">
         <slot name="content">
@@ -18,7 +14,7 @@
       </section>
       <footer class="my-modal-footer">
         <button type="button" class="my-btn-green" @click="close">
-          Close me!
+          Close
         </button>
       </footer>
     </div>
@@ -57,35 +53,41 @@
   }
 
   .my-modal {
-    background: #FFFFFF;
+    background: #eaeaea;
     box-shadow: 2px 2px 20px 1px;
     overflow-x: auto;
     display: flex;
     flex-direction: column;
-    width: 70%;
-    max-height: 95%
+    width: 60%;
+    max-height: 90%;
   }
 
   .my-modal-header,
   .my-modal-footer {
     padding: 15px;
     display: flex;
+
   }
 
   .my-modal-header {
-    border-bottom: 1px solid #eeeeee;
-    color: #4AAE9B;
-    justify-content: space-between;
+    background-color: #444444;
+    border-bottom: 1px solid #eaeaea;
+    color: #eaeaea;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 2em;
   }
 
   .my-modal-footer {
-    border-top: 1px solid #eeeeee;
-    justify-content: flex-end;
+    border-top: 1px solid #eaeaea;
+    justify-content: center;
+    background-color: #444444;
+
+
   }
 
   .my-modal-body {
-    position: relative;
-    padding: 20px 10px;
+    margin: 10px, auto
   }
 
   .my-btn-close {
@@ -94,14 +96,14 @@
     padding: 20px;
     cursor: pointer;
     font-weight: bold;
-    color: #4AAE9B;
+    color: #f30067;
     background: transparent;
   }
 
   .my-btn-green {
     color: white;
-    background: #4AAE9B;
-    border: 1px solid #4AAE9B;
+    background: #f30067;
+    border: 1px solid #000000;
     border-radius: 2px;
   }
 </style>

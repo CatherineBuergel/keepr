@@ -1,5 +1,8 @@
 <template>
-  <div class="vaultKeeps">
+  <div class="vaultKeeps background">
+    <!-- <div v-if="" class="col-12">
+
+    </div> -->
     <div class="col-3">
       <div class="card" style="width: 18rem;">
         <img class="card-img-top" :src="keep.img" alt="Card image cap">

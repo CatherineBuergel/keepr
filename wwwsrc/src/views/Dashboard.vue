@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard">
+  <div class="dashboard background">
     <div class="row">
       <createVaultForm></createVaultForm>
       <createKeepForm></createKeepForm>
@@ -13,7 +13,6 @@
             @click="showKeeps = false">My
             Vaults</span></h4>
       </div>
-
       <personalKeeps v-if="showKeeps" v-for="keep in personalKeeps" :keep="keep"></personalKeeps>
       <vaults v-if="!showKeeps" v-for="vault in vaults" :vault="vault"></vaults>
     </div>
