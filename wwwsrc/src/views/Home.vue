@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home background">
     <h1>Public landing page</h1>
     <div class="row">
       <publicKeeps v-for="keep in publicKeeps" :keep="keep"></publicKeeps>

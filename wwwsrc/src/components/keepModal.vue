@@ -2,7 +2,7 @@
   <div class="keepModal">
     <modal @closemodal="$emit('closemodal')">
       <span slot="header">This is the keep header</span>
-      <span slot="content">
+      <span slot="content" class="d-flex justify-content-center">
         <div class="col-3">
           <div class="card" style="width: 18rem;">
             <img class="card-img-top" :src="keep.img" alt="Card image cap">
@@ -12,6 +12,16 @@
               <p>{{keep.isPrivate ? "Private" : "Public"}}</p>
               <i class="fas fa-trash-alt"></i>
               <i class="fas fa-plus-square"></i>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Add to Vault
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a v-for="vault in vaults" class="dropdown-item" @click="addToVault(keep.id, vault.id)">{{vault.name}}</a>
+                  <a class="dropdown-item" href="#">Cancel</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -28,10 +38,21 @@
     data() {
       return {}
     },
-    computed: {},
-    methods: {},
+    computed: {
+      vaults() {
+
+        return this.$store.state.vaults
+      }
+    },
+    methods: {
+      addToVault(keepId, vaultId) {
+
+        this.$store.dispatch('addToVault', { keepId: keepId, vaultId: vaultId })
+      }
+    },
     components: {
-      modal
+      modal,
+
     }
   }
 </script>

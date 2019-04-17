@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-light bgc">
+    <nav class="navbar navbar-expand-lg navbar-dark bgc navbar-color">
       <a class="navbar-brand logo" @click="goHome">Keepr</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,7 +71,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
+    color: #76b39d;
   }
 
   #nav {
@@ -80,10 +80,22 @@
 
   #nav a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #76b39d;
   }
 
   #nav a.router-link-exact-active {
     color: #42b983;
+  }
+
+  .background {
+    background-color: #f9f8eb;
+  }
+
+  .navbar-color {
+    background-color: #05004E;
+  }
+
+  .nav-link {
+    color: #76b39d;
   }
 </style>

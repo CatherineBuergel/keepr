@@ -24,7 +24,8 @@ export default new Vuex.Store({
     user: {},
     publicKeeps: [],
     personalKeeps: [],
-    vaults: []
+    vaults: [],
+    vaultKeeps: []
   },
   mutations: {
     setUser(state, user) {
@@ -38,6 +39,9 @@ export default new Vuex.Store({
     },
     setVaults(state, data) {
       state.vaults = data
+    },
+    setVaultKeeps(state, data) {
+      state.vaultKeeps = data
     }
   },
   actions: {
@@ -133,6 +137,29 @@ export default new Vuex.Store({
       api.delete('vault/' + payload)
         .then(res => {
           dispatch('getVaults')
+        })
+    },
+    addToVault({ commit, dispatch }, payload) {
+
+      api.post('vault/' + payload.vaultId + '/vaultKeeps', payload)
+        .then(res => {
+          console.log(res.data)
+        })
+    },
+    getVaultKeeps({ commit, dispatch }, payload) {
+      api.get('vault/' + payload + '/vaultKeeps')
+        .then(res => {
+          console.log(res.data)
+          commit('setVaultKeeps', res.data)
+          router.push({ name: 'vault', params: { vaultId: payload } })
+        })
+    },
+    deleteFromVault({ commit, dispatch }, payload) {
+
+      api.delete('vault/' + payload.vaultId + '/vaultKeeps/' + payload.keepId)
+        .then(res => {
+          console.log("deleted")
+          dispatch('getVaultKeeps', payload.vaultId)
         })
     }
     //#endregion
