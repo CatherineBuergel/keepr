@@ -4,16 +4,16 @@
     <div class="my-modal">
       <header class="my-modal-header">
         <slot name="header">
-          This is the default tile!
+          this is where the header stuff goes, will be name of keeps
         </slot>
       </header>
       <section class="my-modal-body">
         <slot name="content">
-          I'm the default body!
+          this is where all of the cards will go
         </slot>
       </section>
       <footer class="my-modal-footer">
-        <button type="button" class="my-btn-green" @click="close">
+        <button type="button" class="btn button-color-stop" @click="close">
           Close
         </button>
       </footer>
@@ -31,7 +31,7 @@
     computed: {},
     methods: {
       close() {
-        this.$emit('closemodal')
+        this.$emit('closeModal')
       }
     },
     components: {}
@@ -88,22 +88,5 @@
 
   .my-modal-body {
     margin: 10px, auto
-  }
-
-  .my-btn-close {
-    border: none;
-    font-size: 20px;
-    padding: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #f30067;
-    background: transparent;
-  }
-
-  .my-btn-green {
-    color: white;
-    background: #f30067;
-    border: 1px solid #000000;
-    border-radius: 2px;
   }
 </style>

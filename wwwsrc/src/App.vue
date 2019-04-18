@@ -67,7 +67,7 @@
 </script>
 <style>
   #app {
-    font-family: 'Ubuntu Mono', monospace;
+    font-family: 'Varela Round', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
@@ -87,27 +87,31 @@
     color: #42b983;
   }
 
-  .background {
+  body {
     background-color: #eaeaea;
-    height: 100vh;
+    /* height: 100vh; */
   }
 
   .navbar-color {
     background-color: #444444;
   }
 
-  .nav-link {
-    color: #000000;
+  .nav-item {
+    color: #f30067;
   }
 
   .button-color-stop {
     background-color: #f30067;
     color: #eaeaea;
+    border-color: #444444;
+    font-weight: bold;
   }
 
   .button-color-go {
     background-color: #00d1cd;
     color: #eaeaea;
+    border-color: #444444;
+    font-weight: bold;
 
   }
 
@@ -126,5 +130,9 @@
   .card-img-size {
     max-width: 100%;
     object-fit: contain;
+  }
+
+  a {
+    cursor: pointer;
   }
 </style>

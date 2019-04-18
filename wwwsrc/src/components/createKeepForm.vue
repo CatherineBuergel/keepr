@@ -2,10 +2,10 @@
   <div class="col-12 createKeep centerStuff">
     <button v-if="!showForm" @click="showForm = !showForm" class="btn button-color-go my-3">Create Keep</button>
     <form v-else @submit.prevent="createKeep" class="form-inline mb-5 centerStuff">
-      <input class="form-control mx-1" type="text" placeholder="Keep Name" v-model="newKeep.name" required>
-      <input class="form-control mx-1" type="text" placeholder="Keep Description" v-model="newKeep.description"
+      <input class="form-control form-border mx-1" type="text" placeholder="Keep Name" v-model="newKeep.name" required>
+      <input class="form-control form-border mx-1" type="text" placeholder="Keep Description" v-model="newKeep.description"
         required>
-      <input class="form-control mx-1" type="text" placeholder="Keep Image" v-model="newKeep.img">
+      <input class="form-control form-border mx-1" type="text" placeholder="Keep Image" v-model="newKeep.img">
       <input class="form-check-input mx-1" type="checkbox" value="true" v-model="newKeep.isPrivate" id="defaultCheck1">
       <label class="form-check-label mx-1" for="defaultCheck1">
         Private
@@ -42,5 +42,9 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+  }
+
+  .form-border {
+    border-color: #444444;
   }
 </style>

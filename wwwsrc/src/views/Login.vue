@@ -1,5 +1,5 @@
 <template>
-    <div class="login background">
+    <div class="login">
         <div class="form-group pt-2">
             <form class="form-inline mb-2 centerStuff" v-if="loginForm" @submit.prevent="loginUser">
                 <input class="form-control mx-1" type="email" v-model="creds.email" placeholder="email">

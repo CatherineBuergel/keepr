@@ -1,14 +1,12 @@
 <template>
-  <div class="vaults col-3 mt-2">
-
-    <div class="card">
+  <div class="vaults mt-2">
+    <div class="card vault-border">
       <div class="card-body my-2">
         <h5 class="card-title">Vault: {{vault.name}}</h5>
         <p class="card-text">Description: {{vault.description}}</p>
         <i class="fas fa-trash-alt mx-1" @click="deleteVault(vault.id)"></i>
-        <button class="btn btn-danger" @click="pushToVault(vault.id)">View Vault</button>
+        <button class="btn button-color-go" @click="pushToVault(vault.id)">View Vault</button>
       </div>
-
     </div>
   </div>
 </template>
@@ -36,3 +34,10 @@
     }
   }
 </script>
+<style>
+  .vault-border {
+    border-color: #444444;
+    border-radius: 10%;
+    overflow: hidden;
+  }
+</style>

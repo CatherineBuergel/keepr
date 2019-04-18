@@ -1,20 +1,20 @@
 <template>
-  <div class="dashboard background">
+  <div class="dashboard container">
     <div class="row">
       <createVaultForm></createVaultForm>
       <createKeepForm></createKeepForm>
-
     </div>
     <div class="row">
-
       <div class="col-12 text-center">
         <h4 v-if="!showCurrent" class="text-center d-flex justify-content-around"><span class="pointer font" :class="showKeeps ? 'selected' : ''"
             @click="showKeeps = true">My Keeps</span> <span class="pointer font" :class="!showKeeps ? 'selected' : ''"
             @click="showKeeps = false">My
             Vaults</span></h4>
       </div>
-      <personalKeeps v-if="showKeeps" v-for="keep in personalKeeps" :keep="keep"></personalKeeps>
-      <vaults v-if="!showKeeps" v-for="vault in vaults" :vault="vault"></vaults>
+      <div class="card-columns">
+        <personalKeeps v-if="showKeeps" v-for="keep in personalKeeps" :keep="keep"></personalKeeps>
+        <vaults v-if="!showKeeps" v-for="vault in vaults" :vault="vault"></vaults>
+      </div>
     </div>
   </div>
 </template>
@@ -70,6 +70,8 @@
   }
 
   .selected {
-    border-bottom: solid 5px #13abc4;
+    border-bottom: solid 5px #00d1cd;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
   }
 </style>

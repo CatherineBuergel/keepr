@@ -1,8 +1,8 @@
 <template>
   <div class="publicKeeps">
-    <publicKeepModal v-if="showKeepModal" @closemodal="closeModal" :keep="keep"></publicKeepModal>
-    <div class="col-3 mt-2">
-      <div class="card card-border" @click="openKeepModal" style="width: 18rem;">
+    <keepModal v-if="showKeepModal" @closeModal="closeModal" :keep="keep"></keepModal>
+    <div class="mt-2">
+      <div class="card card-border" @click="openKeepModal">
         <img class="card-img-top card-img-size" :src="keep.img" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{keep.name}}</h5>
@@ -14,8 +14,8 @@
 </template>
 
 <script>
-  import publicKeepModal from "@/components/publicKeepModal.vue"
-
+  // import publicKeepModal from "@/components/publicKeepModal.vue"
+  import keepModal from "@/components/keepModal.vue"
   export default {
     name: "publicKeeps",
     props: ["keep"],
@@ -37,7 +37,8 @@
       }
     },
     components: {
-      publicKeepModal
+      // publicKeepModal
+      keepModal
     }
   }
 </script>

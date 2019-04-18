@@ -1,16 +1,11 @@
 <template>
-  <div class="vaultKeeps background">
-    <!-- <div v-if="" class="col-12">
-
-    </div> -->
-    <div class="col-3">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" :src="keep.img" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{keep.name}}</h5>
-          <p class="card-text">{{keep.description}}</p>
-          <i class="fas fa-trash-alt" @click="deleteFromVault(keep.id, vaultId)"></i>
-        </div>
+  <div class="vaultKeeps">
+    <div class="card card-border card-img-size">
+      <img class="card-img-top" :src="keep.img" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{keep.name}}</h5>
+        <p class="card-text">{{keep.description}}</p>
+        <i class="fas fa-trash-alt" @click="deleteFromVault(keep.id, vaultId)"></i>
       </div>
     </div>
   </div>

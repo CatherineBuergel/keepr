@@ -1,8 +1,7 @@
 <template>
-  <div class="personalKeeps col-3">
-    <keepModal v-if="showKeepModal" @closemodal="closeModal" :keep="keep"></keepModal>
-
-    <div class="card my-2" @click="openKeepModal">
+  <div class="personalKeeps">
+    <keepModal v-if="showKeepModal" @closeModal="closeModal" :keep="keep"></keepModal>
+    <div class="card card-border card-img-size my-2" @click="openKeepModal">
       <img class="card-img-top" :src="keep.img" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{keep.name}}</h5>

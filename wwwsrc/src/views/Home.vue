@@ -1,8 +1,10 @@
 <template>
-  <div class="home background">
+  <div class="home container">
     <h1>Welcome to Pin - I mean Keepr!</h1>
-    <div class="row">
-      <publicKeeps v-for="keep in publicKeeps" :keep="keep"></publicKeeps>
+    <div class="row background">
+      <div class="card-columns">
+        <publicKeeps v-for="keep in publicKeeps" :keep="keep"></publicKeeps>
+      </div>
     </div>
 
   </div>
