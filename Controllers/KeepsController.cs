@@ -74,5 +74,21 @@ namespace keepr.Controllers
       if (!successful) { return BadRequest("Something had gone horribly wrong"); }
       return Ok("Successfully Deleted");
     }
+
+    [HttpPut("public/edit/{id}")]
+    public ActionResult<Keep> increaseViewCount(int id)
+    {
+      Keep updatedKeep = _kr.increaseViewCount(id);
+      if (updatedKeep == null) { return BadRequest("Something has gone horribly wrong"); }
+      return Ok(updatedKeep);
+    }
+
+    [HttpPut("vaultkeeps/add/{id}")]
+    public ActionResult<Keep> increaseShareCount(int id)
+    {
+      Keep updatedKeep = _kr.increaseShareCount(id);
+      if (updatedKeep == null) { return BadRequest("Something went wrong come fix it"); }
+      return Ok(updatedKeep);
+    }
   }
 }

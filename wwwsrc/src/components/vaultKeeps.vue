@@ -6,6 +6,7 @@
         <h5 class="card-title">{{keep.name}}</h5>
         <p class="card-text">{{keep.description}}</p>
         <i class="fas fa-trash-alt" @click="deleteFromVault(keep.id, vaultId)"></i>
+        <p>Shares: {{keep.shares}}</p>
       </div>
     </div>
   </div>

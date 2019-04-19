@@ -1,6 +1,6 @@
 <template>
   <div class="vaults mt-2">
-    <div class="card vault-border">
+    <div class="card shadow p-3 vault-border">
       <div class="card-body my-2">
         <h5 class="card-title">Vault: {{vault.name}}</h5>
         <p class="card-text">Description: {{vault.description}}</p>

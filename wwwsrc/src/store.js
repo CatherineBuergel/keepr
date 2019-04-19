@@ -116,6 +116,22 @@ export default new Vuex.Store({
           dispatch('getPersonalKeeps')
         })
     },
+    increaseViewCount({ commit, dispatch }, payload) {
+
+      api.put('keeps/public/edit/' + payload)
+        .then(res => {
+          console.log(res.data)
+          dispatch('getPublicKeeps')
+        })
+    },
+    increaseShareCount({ commit, dispatch }, payload) {
+      api.put('keeps/vaultkeeps/add/' + payload)
+        .then(res => {
+          console.log(res.data)
+          dispatch('getPublicKeeps')
+          dispatch('getPersonalKeeps')
+        })
+    },
     //#endregion
 
     //#region VAULTS
@@ -144,6 +160,7 @@ export default new Vuex.Store({
       api.post('vault/' + payload.vaultId + '/vaultKeeps', payload)
         .then(res => {
           console.log(res.data)
+          dispatch('increaseShareCount', payload.keepId)
         })
     },
     getVaultKeeps({ commit, dispatch }, payload) {

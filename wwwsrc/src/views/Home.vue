@@ -15,7 +15,6 @@
   export default {
     name: "home",
     mounted() {
-
       this.$store.dispatch('getPublicKeeps')
     },
 

@@ -89,7 +89,8 @@
 
   body {
     background-color: #eaeaea;
-    /* height: 100vh; */
+    background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   }
 
   .navbar-color {

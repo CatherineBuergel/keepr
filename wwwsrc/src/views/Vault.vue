@@ -39,6 +39,6 @@
 <style>
   .pink-text {
     color: #f30067;
-    text-shadow: -1px 0px 2px #444444;
+    text-shadow: -1px 0px 1px #444444;
   }
 </style>

@@ -65,6 +65,43 @@ namespace keepr.Repositories
       int success = _db.Execute("DELETE FROM keeps WHERE (id = @id AND userId = @userId)", new { id, userId });
       return success > 0;
     }
+
+    public Keep increaseViewCount(int id)
+    {
+      try
+      {
+
+        int success = _db.Execute("UPDATE keeps SET views = views + 1 WHERE id = @id;", new { id });
+        if (success > 0)
+        {
+          return _db.QueryFirstOrDefault<Keep>("SELECT * FROM keeps WHERE id = @id;", new { id });
+        }
+        return null;
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine(e);
+        return null;
+      }
+    }
+
+    public Keep increaseShareCount(int id)
+    {
+      try
+      {
+        int success = _db.Execute("UPDATE keeps SET shares = shares + 1 WHERE id = @id;", new { id });
+        if (success > 0)
+        {
+          return _db.QueryFirstOrDefault<Keep>("SELECT * FROM keeps WHERE id = @id;", new { id });
+        }
+        return null;
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine(e);
+        return null;
+      }
+    }
   }
 }
 // AND userId = @userId AND isPrivate = 1
